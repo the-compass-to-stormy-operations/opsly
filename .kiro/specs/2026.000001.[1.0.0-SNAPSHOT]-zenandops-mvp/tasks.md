@@ -23,28 +23,28 @@
   - [x] 3.3 Implement `RefreshTokenUseCase`: validate Refresh_Token, rotate tokens (invalidate old, issue new pair), publish refresh event
   - [x] 3.4 Implement `LogoffUseCase`: revoke Refresh_Token, publish logoff event
 
-- [-] 4. Auth_Service infrastructure layer (adapters)
-  - [~] 4.1 Implement `MongoUserRepository` adapter using Quarkus MongoDB Panache
-  - [~] 4.2 Implement `MongoRefreshTokenRepository` adapter using Quarkus MongoDB Panache
-  - [~] 4.3 Implement `JwtTokenProvider` adapter using SmallRye JWT for Access_Token generation and validation with claims (sub, userId, name, email, roles, attributes)
-  - [~] 4.4 Implement `BcryptPasswordEncoder` adapter using Quarkus Elytron security
-  - [~] 4.5 Implement `KafkaAuthEventPublisher` adapter using SmallRye Reactive Messaging with graceful failure handling (log and continue if Kafka is unavailable)
-  - [~] 4.6 Implement `DefaultPolicyEngine` adapter evaluating RBAC (role matching) and ABAC (attribute matching) rules
-  - [~] 4.7 Create REST resource `AuthResource` exposing `/api/v1/auth/login`, `/api/v1/auth/refresh`, `/api/v1/auth/logoff` endpoints
-  - [~] 4.8 Configure `application.properties` for MongoDB connection, Kafka broker, JWT secret/issuer, and token expiration values
+- [x] 4. Auth_Service infrastructure layer (adapters)
+  - [x] 4.1 Implement `MongoUserRepository` adapter using Quarkus MongoDB Panache
+  - [x] 4.2 Implement `MongoRefreshTokenRepository` adapter using Quarkus MongoDB Panache
+  - [x] 4.3 Implement `JwtTokenProvider` adapter using SmallRye JWT for Access_Token generation and validation with claims (sub, userId, name, email, roles, attributes)
+  - [x] 4.4 Implement `BcryptPasswordEncoder` adapter using Quarkus Elytron security
+  - [x] 4.5 Implement `KafkaAuthEventPublisher` adapter using SmallRye Reactive Messaging with graceful failure handling (log and continue if Kafka is unavailable)
+  - [x] 4.6 Implement `DefaultPolicyEngine` adapter evaluating RBAC (role matching) and ABAC (attribute matching) rules
+  - [x] 4.7 Create REST resource `AuthResource` exposing `/api/v1/auth/login`, `/api/v1/auth/refresh`, `/api/v1/auth/logoff` endpoints
+  - [x] 4.8 Configure `application.properties` for MongoDB connection, Kafka broker, JWT secret/issuer, and token expiration values
 
-- [ ] 5. Dashboard_Service domain and application layers
-  - [~] 5.1 Create `DashboardPayload` value object with nested structures: ExecutiveSummary, TicketsByState, SliSloCompliance, IncidentMetrics, ErrorBudget, ChangeManagement, and errors list
-  - [~] 5.2 Define outbound port interfaces: `TicketMetricsProvider`, `SliSloMetricsProvider`, `IncidentMetricsProvider`, `ChangeMetricsProvider`
-  - [~] 5.3 Implement `GetDashboardPayloadUseCase`: aggregate data from all providers, handle partial failures by populating the errors array
+- [x] 5. Dashboard_Service domain and application layers
+  - [x] 5.1 Create `DashboardPayload` value object with nested structures: ExecutiveSummary, TicketsByState, SliSloCompliance, IncidentMetrics, ErrorBudget, ChangeManagement, and errors list
+  - [x] 5.2 Define outbound port interfaces: `TicketMetricsProvider`, `SliSloMetricsProvider`, `IncidentMetricsProvider`, `ChangeMetricsProvider`
+  - [x] 5.3 Implement `GetDashboardPayloadUseCase`: aggregate data from all providers, handle partial failures by populating the errors array
 
-- [ ] 6. Dashboard_Service infrastructure layer (adapters)
-  - [~] 6.1 Implement `MockTicketMetricsProvider` returning realistic ITIL ticket counts by state (New, Processing Assigned, Processing Planned, Pending, Solved, Closed)
-  - [~] 6.2 Implement `MockSliSloMetricsProvider` returning realistic SRE metrics (availability SLI/SLO, latency SLI/SLO percentages)
-  - [~] 6.3 Implement `MockIncidentMetricsProvider` returning realistic MTTR and MTTD values with trend indicators
-  - [~] 6.4 Implement `MockChangeMetricsProvider` returning realistic change failure rate and error budget consumption data
-  - [~] 6.5 Create REST resource `DashboardResource` exposing `/api/v1/dashboard` endpoint (protected, requires valid Access_Token)
-  - [~] 6.6 Configure `application.properties` for JWT validation (shared secret/issuer with Auth_Service) and service port
+- [-] 6. Dashboard_Service infrastructure layer (adapters)
+  - [-] 6.1 Implement `MockTicketMetricsProvider` returning realistic ITIL ticket counts by state (New, Processing Assigned, Processing Planned, Pending, Solved, Closed)
+  - [-] 6.2 Implement `MockSliSloMetricsProvider` returning realistic SRE metrics (availability SLI/SLO, latency SLI/SLO percentages)
+  - [-] 6.3 Implement `MockIncidentMetricsProvider` returning realistic MTTR and MTTD values with trend indicators
+  - [-] 6.4 Implement `MockChangeMetricsProvider` returning realistic change failure rate and error budget consumption data
+  - [-] 6.5 Create REST resource `DashboardResource` exposing `/api/v1/dashboard` endpoint (protected, requires valid Access_Token)
+  - [-] 6.6 Configure `application.properties` for JWT validation (shared secret/issuer with Auth_Service) and service port
 
 - [ ] 7. Frontend login page and authentication module
   - [~] 7.1 Create `AuthContext` with React context providing: login, logoff, token state, isAuthenticated, and auto-refresh logic
