@@ -17,13 +17,13 @@
   - [x] 2.4 Create `RbacPolicy` and `AbacPolicy` value objects for authorization rules
   - [x] 2.5 Create domain exceptions: `InvalidCredentialsException`, `TokenExpiredException`, `TokenRevokedException`, `AccessDeniedException`
 
-- [-] 3. Auth_Service application layer (ports and use cases)
-  - [~] 3.1 Define outbound port interfaces: `UserRepository`, `RefreshTokenRepository`, `TokenProvider`, `PasswordEncoder`, `AuthEventPublisher`, `PolicyEngine`
-  - [~] 3.2 Implement `LoginUseCase`: validate credentials, hash comparison, issue Access_Token (15 min) and Refresh_Token (8 hours), publish login event
-  - [~] 3.3 Implement `RefreshTokenUseCase`: validate Refresh_Token, rotate tokens (invalidate old, issue new pair), publish refresh event
-  - [~] 3.4 Implement `LogoffUseCase`: revoke Refresh_Token, publish logoff event
+- [x] 3. Auth_Service application layer (ports and use cases)
+  - [x] 3.1 Define outbound port interfaces: `UserRepository`, `RefreshTokenRepository`, `TokenProvider`, `PasswordEncoder`, `AuthEventPublisher`, `PolicyEngine`
+  - [x] 3.2 Implement `LoginUseCase`: validate credentials, hash comparison, issue Access_Token (15 min) and Refresh_Token (8 hours), publish login event
+  - [x] 3.3 Implement `RefreshTokenUseCase`: validate Refresh_Token, rotate tokens (invalidate old, issue new pair), publish refresh event
+  - [x] 3.4 Implement `LogoffUseCase`: revoke Refresh_Token, publish logoff event
 
-- [ ] 4. Auth_Service infrastructure layer (adapters)
+- [-] 4. Auth_Service infrastructure layer (adapters)
   - [~] 4.1 Implement `MongoUserRepository` adapter using Quarkus MongoDB Panache
   - [~] 4.2 Implement `MongoRefreshTokenRepository` adapter using Quarkus MongoDB Panache
   - [~] 4.3 Implement `JwtTokenProvider` adapter using SmallRye JWT for Access_Token generation and validation with claims (sub, userId, name, email, roles, attributes)
