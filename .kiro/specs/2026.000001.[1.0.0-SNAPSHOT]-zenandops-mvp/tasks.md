@@ -38,26 +38,26 @@
   - [x] 5.2 Define outbound port interfaces: `TicketMetricsProvider`, `SliSloMetricsProvider`, `IncidentMetricsProvider`, `ChangeMetricsProvider`
   - [x] 5.3 Implement `GetDashboardPayloadUseCase`: aggregate data from all providers, handle partial failures by populating the errors array
 
-- [-] 6. Dashboard_Service infrastructure layer (adapters)
-  - [-] 6.1 Implement `MockTicketMetricsProvider` returning realistic ITIL ticket counts by state (New, Processing Assigned, Processing Planned, Pending, Solved, Closed)
-  - [-] 6.2 Implement `MockSliSloMetricsProvider` returning realistic SRE metrics (availability SLI/SLO, latency SLI/SLO percentages)
-  - [-] 6.3 Implement `MockIncidentMetricsProvider` returning realistic MTTR and MTTD values with trend indicators
-  - [-] 6.4 Implement `MockChangeMetricsProvider` returning realistic change failure rate and error budget consumption data
-  - [-] 6.5 Create REST resource `DashboardResource` exposing `/api/v1/dashboard` endpoint (protected, requires valid Access_Token)
-  - [-] 6.6 Configure `application.properties` for JWT validation (shared secret/issuer with Auth_Service) and service port
+- [x] 6. Dashboard_Service infrastructure layer (adapters)
+  - [x] 6.1 Implement `MockTicketMetricsProvider` returning realistic ITIL ticket counts by state (New, Processing Assigned, Processing Planned, Pending, Solved, Closed)
+  - [x] 6.2 Implement `MockSliSloMetricsProvider` returning realistic SRE metrics (availability SLI/SLO, latency SLI/SLO percentages)
+  - [x] 6.3 Implement `MockIncidentMetricsProvider` returning realistic MTTR and MTTD values with trend indicators
+  - [x] 6.4 Implement `MockChangeMetricsProvider` returning realistic change failure rate and error budget consumption data
+  - [x] 6.5 Create REST resource `DashboardResource` exposing `/api/v1/dashboard` endpoint (protected, requires valid Access_Token)
+  - [x] 6.6 Configure `application.properties` for JWT validation (shared secret/issuer with Auth_Service) and service port
 
-- [ ] 7. Frontend login page and authentication module
-  - [~] 7.1 Create `AuthContext` with React context providing: login, logoff, token state, isAuthenticated, and auto-refresh logic
-  - [~] 7.2 Create `ApiClient` module (axios instance) that attaches Bearer token to requests and intercepts 401 responses to attempt token refresh and retry
-  - [~] 7.3 Adapt the `.frontend-template` SignIn page into a `LoginPage` component with login/password fields, form validation (empty field checks), loading indicator, and generic error display
-  - [~] 7.4 Implement login form submission: call Auth_Service `/api/v1/auth/login`, store tokens, redirect to dashboard
-  - [~] 7.5 Implement logoff: call Auth_Service `/api/v1/auth/logoff`, clear tokens from storage, redirect to login page
+- [x] 7. Frontend login page and authentication module
+  - [x] 7.1 Create `AuthContext` with React context providing: login, logoff, token state, isAuthenticated, and auto-refresh logic
+  - [x] 7.2 Create `ApiClient` module (axios instance) that attaches Bearer token to requests and intercepts 401 responses to attempt token refresh and retry
+  - [x] 7.3 Adapt the `.frontend-template` SignIn page into a `LoginPage` component with login/password fields, form validation (empty field checks), loading indicator, and generic error display
+  - [x] 7.4 Implement login form submission: call Auth_Service `/api/v1/auth/login`, store tokens, redirect to dashboard
+  - [x] 7.5 Implement logoff: call Auth_Service `/api/v1/auth/logoff`, clear tokens from storage, redirect to login page
 
-- [ ] 8. Frontend protected routes and navigation
-  - [~] 8.1 Create `ProtectedRoute` component that checks authentication state and redirects unauthenticated users to `/login`
-  - [~] 8.2 Update `App.tsx` routing: `/login` (public), `/` dashboard (protected), redirect authenticated users from `/login` to `/`
-  - [~] 8.3 Implement client-side RBAC/ABAC checks: hide or disable UI elements based on JWT claims (roles and attributes)
-  - [~] 8.4 Update sidebar and header components to show authenticated user info and logoff button
+- [-] 8. Frontend protected routes and navigation
+  - [-] 8.1 Create `ProtectedRoute` component that checks authentication state and redirects unauthenticated users to `/login`
+  - [-] 8.2 Update `App.tsx` routing: `/login` (public), `/` dashboard (protected), redirect authenticated users from `/login` to `/`
+  - [-] 8.3 Implement client-side RBAC/ABAC checks: hide or disable UI elements based on JWT claims (roles and attributes)
+  - [-] 8.4 Update sidebar and header components to show authenticated user info and logoff button
 
 - [ ] 9. Frontend dashboard page
   - [~] 9.1 Adapt the `.frontend-template` Dashboard Home layout for the operational dashboard page

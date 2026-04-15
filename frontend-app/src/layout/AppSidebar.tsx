@@ -16,7 +16,7 @@ import {
   UserCircleIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-import SidebarWidget from "./SidebarWidget";
+import { useAuth } from "../context/AuthContext";
 
 type NavItem = {
   name: string;
@@ -368,10 +368,42 @@ const AppSidebar: React.FC = () => {
             </div>
           </div>
         </nav>
-        {isExpanded || isHovered || isMobileOpen ? <SidebarWidget /> : null}
+        {(isExpanded || isHovered || isMobileOpen) && <SidebarUserInfo />}
       </div>
     </aside>
   );
 };
+
+function SidebarUserInfo() {
+  const { user } = useAuth();
+  if (!user) return null;
+
+  const initials = user.name
+    ? user.name.charAt(0).toUpperCase()
+    : user.sub?.charAt(0).toUpperCase() ?? "?";
+
+  return (
+    <div className="mx-auto mb-10 w-full max-w-60 rounded-2xl bg-gray-50 px-4 py-5 dark:bg-white/[0.03]">
+      <div className="flex items-center gap-3">
+        <span className="flex items-center justify-center h-10 w-10 rounded-full bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-300 font-semibold text-sm shrink-0">
+          {initials}
+        </span>
+        <div className="min-w-0">
+          <p className="font-medium text-gray-900 dark:text-white text-theme-sm truncate">
+            {user.name}
+          </p>
+          <p className="text-gray-500 dark:text-gray-400 text-theme-xs truncate">
+            {user.email}
+          </p>
+          {user.roles && user.roles.length > 0 && (
+            <p className="text-brand-500 dark:text-brand-400 text-theme-xs truncate">
+              {user.roles.join(", ")}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default AppSidebar;
