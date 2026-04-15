@@ -1,51 +1,59 @@
-# 🌩️ StormyOps
+# 🌩️🧠 OpsEngineeringLab
 
-**Engineering resilience in a chaotic world**
+**Engineering the future of operations**
 
-Organization focused on modernizing IT operations by combining ITSM (ITIL) practices, SRE principles, automation, and platform engineering.
+An organization focused on evolving how IT operations are designed, executed, and improved.
 
-> The "storm" represents the reality of modern distributed systems.
-
----
-
-## 🚀 Opsly
-
-**Simple operations. Powerful reliability.**
-
-A platform that transforms operational chaos into controlled, predictable flow.
+> Engineering over tooling. Systems over tickets. Reliability over process.
 
 ---
 
-## 🎯 Value Proposition
+## 🚀 ZenAndOps
 
-**Opsly helps teams move from reactive ITSM to proactive, reliable operations.**
+**Where calm meets operations**
 
-Opsly is a modern operations platform that unifies IT service management and site reliability practices, enabling teams to manage incidents, automate workflows, and improve system reliability — all in one place.
+A modern platform that unifies ITSM and SRE practices to transform chaotic operations into predictable, controlled systems.
 
-### Technical Vision (SRE / DevOps)
-
-Opsly bridges ITSM and SRE by combining incident management, workflow automation, and reliability insights — helping teams reduce toil, manage error budgets, and operate systems with confidence.
+> ZenAndOps is an operations platform built by OpsEngineeringLab. It helps teams move beyond traditional ITSM by combining incident management, automation, and reliability practices into a single, modern workflow. The result is less firefighting and more predictable, resilient operations.
 
 ---
 
-## ⚖️ Narrative
+## 🎯 Core Narrative
 
-Modern systems are inherently stormy. Distributed architectures, microservices, and constant change create operational turbulence.
+Modern systems are not broken. They are complex, distributed, and constantly evolving.
 
-**StormyOps** exists because chaos is real. **Opsly** exists to bring control to it.
+That complexity creates operational noise — incidents, alerts, tickets, escalations.
+
+Most tools try to manage the chaos. We believe in something different.
+
+At **OpsEngineeringLab**, we bring engineering discipline to operations.
+
+**ZenAndOps** is the result of that vision. A place where calm and operations finally work together.
+
+---
+
+## 💡 Value Proposition
+
+**ZenAndOps brings calm, clarity, and control to modern operations.**
+
+ZenAndOps is a modern operations platform that combines ITSM and SRE practices to help teams manage incidents, automate workflows, and operate complex systems with clarity and confidence.
+
+### Technical Vision
+
+ZenAndOps integrates incident management, workflow automation, and reliability practices into a unified platform, reducing operational toil and enabling teams to run systems with predictability and control.
 
 ---
 
 ## 🧩 Product Pillars
 
-### 🌊 From Chaos to Flow
-Transforms incidents and tickets into structured, manageable flows.
+### 🌊 Flow over friction
+Operations should flow, not get stuck.
 
-### ⚙️ Automation First
-Reduces toil through automation — runbooks, workflows, and programmatic actions.
+### ⚙️ Automation by design
+Reduce manual work through engineering.
 
-### 🔎 Operational Visibility
-Clarity on what is happening across your systems, without unnecessary complexity.
+### 🔎 Clarity over noise
+Less alert fatigue, more understanding.
 
-### 🛡️ Built for Reliability
-Inspired by SRE, without being locked into jargon. Reliability as a practice, not a buzzword.
+### 🛡️ Reliability as an outcome
+Not a process — a measurable result.
