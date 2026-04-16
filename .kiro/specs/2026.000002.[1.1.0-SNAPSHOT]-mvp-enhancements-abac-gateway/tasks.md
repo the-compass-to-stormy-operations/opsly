@@ -58,7 +58,7 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 3.9 Update `AuthExceptionMapper` to handle new domain exceptions (`TagAlreadyExistsException` → 409, `TagInUseException` → 409, `TagNotFoundException` → 404, `UserNotFoundException` → 404)
     - _Requirements: 2.6, 2.7, 3.4, 3.5_
 
-- [ ] 4. Auth_Service — Seed data routine
+- [-] 4. Auth_Service — Seed data routine
   - [~] 4.1 Implement `SeedDataService` observing Quarkus `StartupEvent`: check if users collection is empty, create default Tags (`department:engineering`, `department:operations`, `location:HQ`, `location:remote`), create default Users (admin/admin with ADMIN+USER roles, user/user with USER role, guest/guest with GUEST role), assign Tags to Users per design
     - Passwords must be bcrypt-hashed
     - Must be idempotent: skip if users collection already has data
