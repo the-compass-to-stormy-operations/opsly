@@ -59,30 +59,30 @@
   - [x] 8.3 Implement client-side RBAC/ABAC checks: hide or disable UI elements based on JWT claims (roles and attributes)
   - [x] 8.4 Update sidebar and header components to show authenticated user info and logoff button
 
-- [-] 9. Frontend dashboard page
-  - [-] 9.1 Adapt the `.frontend-template` Dashboard Home layout for the operational dashboard page
-  - [-] 9.2 Create executive summary metric cards (total open tickets, critical incidents, overall availability, error budget remaining) derived from the EcommerceMetrics component pattern
-  - [-] 9.3 Create ticket-by-state bar chart visualization (New, Processing Assigned, Processing Planned, Pending, Solved, Closed) using the existing chart components
-  - [-] 9.4 Create SLI/SLO compliance gauge or percentage indicator component
-  - [-] 9.5 Create MTTR and MTTD metric cards with trend indicators (up/down/stable arrows)
-  - [-] 9.6 Create error budget consumption progress bar or gauge visualization
-  - [-] 9.7 Create change failure rate display component
-  - [-] 9.8 Wire dashboard page to fetch Dashboard_Payload from Dashboard_Service `/api/v1/dashboard` on mount
+- [x] 9. Frontend dashboard page
+  - [x] 9.1 Adapt the `.frontend-template` Dashboard Home layout for the operational dashboard page
+  - [x] 9.2 Create executive summary metric cards (total open tickets, critical incidents, overall availability, error budget remaining) derived from the EcommerceMetrics component pattern
+  - [x] 9.3 Create ticket-by-state bar chart visualization (New, Processing Assigned, Processing Planned, Pending, Solved, Closed) using the existing chart components
+  - [x] 9.4 Create SLI/SLO compliance gauge or percentage indicator component
+  - [x] 9.5 Create MTTR and MTTD metric cards with trend indicators (up/down/stable arrows)
+  - [x] 9.6 Create error budget consumption progress bar or gauge visualization
+  - [x] 9.7 Create change failure rate display component
+  - [x] 9.8 Wire dashboard page to fetch Dashboard_Payload from Dashboard_Service `/api/v1/dashboard` on mount
 
-- [ ] 10. Frontend PWA configuration
-  - [~] 10.1 Create web app manifest (`manifest.json`) with application name "ZenAndOps", icons, theme color, and `display: standalone`
-  - [~] 10.2 Register a service worker that caches static assets for offline access to the login page shell
-  - [~] 10.3 Configure Vite PWA plugin (or workbox) for service worker generation and asset precaching
+- [x] 10. Frontend PWA configuration
+  - [x] 10.1 Create web app manifest (`manifest.json`) with application name "ZenAndOps", icons, theme color, and `display: standalone`
+  - [x] 10.2 Register a service worker that caches static assets for offline access to the login page shell
+  - [x] 10.3 Configure Vite PWA plugin (or workbox) for service worker generation and asset precaching
 
-- [ ] 11. Docker and Docker Compose setup
-  - [~] 11.1 Create `Dockerfile` for Auth_Service (Java 25 runtime, multi-stage build with Maven)
-  - [~] 11.2 Create `Dockerfile` for Dashboard_Service (Java 25 runtime, multi-stage build with Maven)
-  - [~] 11.3 Create `Dockerfile` for Frontend_App (multi-stage: Node build + Nginx serve)
-  - [~] 11.4 Create `docker-compose.yml` defining services: auth-service, dashboard-service, frontend-app, mongodb, kafka (with zookeeper or KRaft)
-  - [~] 11.5 Configure network connectivity: frontend reaches backend services, backend services reach MongoDB and Kafka
-  - [~] 11.6 Add health checks for MongoDB and Kafka with `depends_on` conditions for dependent services
-  - [~] 11.7 Externalize all configuration via environment variables: database connection strings, Kafka broker addresses, JWT secret keys, service ports
-  - [~] 11.8 Create `.env.example` file documenting all required environment variables
+- [-] 11. Docker and Docker Compose setup
+  - [-] 11.1 Create `Dockerfile` for Auth_Service (Java 25 runtime, multi-stage build with Maven)
+  - [-] 11.2 Create `Dockerfile` for Dashboard_Service (Java 25 runtime, multi-stage build with Maven)
+  - [-] 11.3 Create `Dockerfile` for Frontend_App (multi-stage: Node build + Nginx serve)
+  - [-] 11.4 Create `docker-compose.yml` defining services: auth-service, dashboard-service, frontend-app, mongodb, kafka (with zookeeper or KRaft)
+  - [-] 11.5 Configure network connectivity: frontend reaches backend services, backend services reach MongoDB and Kafka
+  - [-] 11.6 Add health checks for MongoDB and Kafka with `depends_on` conditions for dependent services
+  - [-] 11.7 Externalize all configuration via environment variables: database connection strings, Kafka broker addresses, JWT secret keys, service ports
+  - [-] 11.8 Create `.env.example` file documenting all required environment variables
 
 - [ ] 12. Version control and release
   - [~] 12.1 Ensure all previous tasks are complete and tests pass
