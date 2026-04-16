@@ -117,10 +117,10 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 10.5 Configure `application.properties` for Gateway_Service: backend service URLs, JWT public key/issuer, rate limit settings, HTTP port, Swagger UI in dev mode
     - _Requirements: 7.4, 8.4, 9.8_
 
-- [ ] 11. Checkpoint — Gateway_Service
+- [x] 11. Checkpoint — Gateway_Service
   - Ensure Gateway_Service compiles and starts correctly, ask the user if questions arise.
 
-- [ ] 12. Frontend — Tag management pages
+- [-] 12. Frontend — Tag management pages
   - [~] 12.1 Create `useTagApi` custom hook encapsulating Tag CRUD API calls (`POST /api/v1/tags`, `GET /api/v1/tags`, `GET /api/v1/tags/{id}`, `PUT /api/v1/tags/{id}`, `DELETE /api/v1/tags/{id}`)
     - _Requirements: 4.1, 4.2, 4.3, 4.4_
   - [~] 12.2 Create `useUserTagApi` custom hook encapsulating User-Tag assignment API calls (`GET /api/v1/users/{userId}/tags`, `POST /api/v1/users/{userId}/tags`, `DELETE /api/v1/users/{userId}/tags`)
