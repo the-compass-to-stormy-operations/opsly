@@ -120,30 +120,30 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
 - [x] 11. Checkpoint — Gateway_Service
   - Ensure Gateway_Service compiles and starts correctly, ask the user if questions arise.
 
-- [-] 12. Frontend — Tag management pages
-  - [~] 12.1 Create `useTagApi` custom hook encapsulating Tag CRUD API calls (`POST /api/v1/tags`, `GET /api/v1/tags`, `GET /api/v1/tags/{id}`, `PUT /api/v1/tags/{id}`, `DELETE /api/v1/tags/{id}`)
+- [x] 12. Frontend — Tag management pages
+  - [x] 12.1 Create `useTagApi` custom hook encapsulating Tag CRUD API calls (`POST /api/v1/tags`, `GET /api/v1/tags`, `GET /api/v1/tags/{id}`, `PUT /api/v1/tags/{id}`, `DELETE /api/v1/tags/{id}`)
     - _Requirements: 4.1, 4.2, 4.3, 4.4_
-  - [~] 12.2 Create `useUserTagApi` custom hook encapsulating User-Tag assignment API calls (`GET /api/v1/users/{userId}/tags`, `POST /api/v1/users/{userId}/tags`, `DELETE /api/v1/users/{userId}/tags`)
+  - [x] 12.2 Create `useUserTagApi` custom hook encapsulating User-Tag assignment API calls (`GET /api/v1/users/{userId}/tags`, `POST /api/v1/users/{userId}/tags`, `DELETE /api/v1/users/{userId}/tags`)
     - _Requirements: 4.5, 4.6_
-  - [~] 12.3 Create `TagManagementPage` component: table listing all Tags with columns for key, value, description, and action buttons (edit, delete); includes create button
+  - [x] 12.3 Create `TagManagementPage` component: table listing all Tags with columns for key, value, description, and action buttons (edit, delete); includes create button
     - _Requirements: 4.1, 4.8, 4.9_
-  - [~] 12.4 Create `TagFormModal` component: modal form for creating or editing a Tag with input fields for key, value, and description; displays loading indicator and disables controls during submission
+  - [x] 12.4 Create `TagFormModal` component: modal form for creating or editing a Tag with input fields for key, value, and description; displays loading indicator and disables controls during submission
     - _Requirements: 4.2, 4.3, 4.7, 4.9_
-  - [~] 12.5 Create `TagDeleteConfirmModal` component: confirmation dialog before Tag deletion; displays error message if Tag is in use (409)
+  - [x] 12.5 Create `TagDeleteConfirmModal` component: confirmation dialog before Tag deletion; displays error message if Tag is in use (409)
     - _Requirements: 4.4, 4.7_
-  - [~] 12.6 Create `UserTagsSection` component: section showing assigned Tags for a User with assign/remove controls; displays loading indicator during operations
+  - [x] 12.6 Create `UserTagsSection` component: section showing assigned Tags for a User with assign/remove controls; displays loading indicator during operations
     - _Requirements: 4.5, 4.6, 4.7, 4.9_
 
-- [ ] 13. Frontend — Gateway routing and ABAC updates
-  - [~] 13.1 Update `ApiClient.ts`: set `baseURL` from `VITE_GATEWAY_URL` environment variable so all API requests route through the Gateway_Service
+- [x] 13. Frontend — Gateway routing and ABAC updates
+  - [x] 13.1 Update `ApiClient.ts`: set `baseURL` from `VITE_GATEWAY_URL` environment variable so all API requests route through the Gateway_Service
     - _Requirements: 11.1, 11.2_
-  - [~] 13.2 Update `AuthContext.tsx`: replace `JwtClaims.attributes: Record<string, string>` with `tags: Array<{key: string, value: string}>`
+  - [x] 13.2 Update `AuthContext.tsx`: replace `JwtClaims.attributes: Record<string, string>` with `tags: Array<{key: string, value: string}>`
     - _Requirements: 1.4_
-  - [~] 13.3 Update `useAuthorization.ts`: refactor `useHasAttributes()` and `useIsAuthorized()` to match against Tag key-value pairs from the `tags` array claim
+  - [x] 13.3 Update `useAuthorization.ts`: refactor `useHasAttributes()` and `useIsAuthorized()` to match against Tag key-value pairs from the `tags` array claim
     - _Requirements: 1.5_
-  - [~] 13.4 Update `Authorize.tsx` component: adapt `attributes` prop to work with Tag-based claims
+  - [x] 13.4 Update `Authorize.tsx` component: adapt `attributes` prop to work with Tag-based claims
     - _Requirements: 1.5_
-  - [~] 13.5 Add Gateway error handling to `ApiClient.ts` response interceptor: display notification on 429 (rate limit exceeded) and 503 (service unavailable)
+  - [x] 13.5 Add Gateway error handling to `ApiClient.ts` response interceptor: display notification on 429 (rate limit exceeded) and 503 (service unavailable)
     - _Requirements: 11.3, 11.4_
 
 - [ ] 14. Frontend — Routing and navigation updates
