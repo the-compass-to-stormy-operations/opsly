@@ -36,10 +36,10 @@ public class ConfigRouteResolver implements RouteResolver {
         definitions.add(new RouteDefinition("/api/v1/auth/refresh", authServiceUrl, false));
 
         // Protected routes (JWT required)
-        definitions.add(new RouteDefinition("/api/v1/users/", authServiceUrl, true));
-        definitions.add(new RouteDefinition("/api/v1/tags/", authServiceUrl, true));
+        definitions.add(new RouteDefinition("/api/v1/users", authServiceUrl, true));
+        definitions.add(new RouteDefinition("/api/v1/tags", authServiceUrl, true));
         definitions.add(new RouteDefinition("/api/v1/auth/", authServiceUrl, true));
-        definitions.add(new RouteDefinition("/api/v1/dashboard/", dashboardServiceUrl, true));
+        definitions.add(new RouteDefinition("/api/v1/dashboard", dashboardServiceUrl, true));
 
         // Sort by path prefix length descending — most specific first
         definitions.sort(Comparator.comparingInt((RouteDefinition r) -> r.pathPrefix().length()).reversed());

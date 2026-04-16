@@ -161,7 +161,8 @@ public class GatewayResource {
 
     private Response handleRequest(String method, HttpHeaders httpHeaders, UriInfo uriInfo,
                                    HttpServerRequest serverRequest, InputStream bodyStream) {
-        String path = "/" + uriInfo.getPath();
+        String rawPath = uriInfo.getPath();
+        String path = rawPath.startsWith("/") ? rawPath : "/" + rawPath;
         String clientIp = extractClientIp(serverRequest);
 
         // 1. Rate limit check (before JWT validation per requirement 8.5)

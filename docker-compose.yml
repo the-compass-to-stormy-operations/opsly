@@ -116,7 +116,7 @@ services:
       dashboard-service:
         condition: service_started
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8080/q/health || exit 1"]
+      test: ["CMD", "java", "-cp", "/app/healthcheck", "HealthCheck", "http://localhost:8080/q/health"]
       interval: 10s
       timeout: 5s
       retries: 5
