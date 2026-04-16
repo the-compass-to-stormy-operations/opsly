@@ -76,22 +76,22 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 6.3 Configure `application.properties` to enable Swagger UI in dev mode
     - _Requirements: 9.8_
 
-- [-] 7. Dashboard_Service — OpenAPI documentation
-  - [~] 7.1 Add `quarkus-smallrye-openapi` dependency to Dashboard_Service `pom.xml`
+- [x] 7. Dashboard_Service — OpenAPI documentation
+  - [x] 7.1 Add `quarkus-smallrye-openapi` dependency to Dashboard_Service `pom.xml`
     - _Requirements: 9.2, 9.5_
-  - [~] 7.2 Annotate `DashboardResource` with OpenAPI annotations (descriptions, request/response schemas, authentication requirements, error response codes)
+  - [x] 7.2 Annotate `DashboardResource` with OpenAPI annotations (descriptions, request/response schemas, authentication requirements, error response codes)
     - _Requirements: 9.7_
-  - [~] 7.3 Configure `application.properties` to enable Swagger UI in dev mode
+  - [x] 7.3 Configure `application.properties` to enable Swagger UI in dev mode
     - _Requirements: 9.8_
 
 
-- [ ] 8. Gateway_Service — Project scaffolding
-  - [~] 8.1 Scaffold `gateway-service/` as a Quarkus Maven project (Java 25) with hexagonal architecture package layout: `domain`, `application`, `infrastructure` under `com.zenandops.gateway`
+- [x] 8. Gateway_Service — Project scaffolding
+  - [x] 8.1 Scaffold `gateway-service/` as a Quarkus Maven project (Java 25) with hexagonal architecture package layout: `domain`, `application`, `infrastructure` under `com.zenandops.gateway`
     - Add dependencies: `quarkus-rest-jackson`, `quarkus-smallrye-jwt`, `quarkus-vertx`, `quarkus-smallrye-openapi`, `quarkus-arc`
     - _Requirements: 6.1, 9.3, 9.6_
-  - [~] 8.2 Create domain value objects: `RouteDefinition` (pathPrefix, targetBaseUrl, jwtRequired) and `RateLimitResult` (allowed, retryAfterSeconds)
+  - [x] 8.2 Create domain value objects: `RouteDefinition` (pathPrefix, targetBaseUrl, jwtRequired) and `RateLimitResult` (allowed, retryAfterSeconds)
     - _Requirements: 6.2, 6.3, 6.4, 8.1_
-  - [~] 8.3 Define application port interfaces: `RouteResolver` (resolve target backend URL for a given path) and `RateLimiter` (check rate limit for a client IP)
+  - [x] 8.3 Define application port interfaces: `RouteResolver` (resolve target backend URL for a given path) and `RateLimiter` (check rate limit for a client IP)
     - _Requirements: 6.2, 6.3, 6.4, 8.1_
 
 - [ ] 9. Gateway_Service — Infrastructure adapters
