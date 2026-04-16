@@ -146,29 +146,29 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 13.5 Add Gateway error handling to `ApiClient.ts` response interceptor: display notification on 429 (rate limit exceeded) and 503 (service unavailable)
     - _Requirements: 11.3, 11.4_
 
-- [-] 14. Frontend — Routing and navigation updates
-  - [~] 14.1 Update `App.tsx`: add `/tags` route for `TagManagementPage` (protected, ADMIN only)
+- [x] 14. Frontend — Routing and navigation updates
+  - [x] 14.1 Update `App.tsx`: add `/tags` route for `TagManagementPage` (protected, ADMIN only)
     - _Requirements: 4.8_
-  - [~] 14.2 Update `AppSidebar.tsx`: add sidebar entry for Tag Management visible only to ADMIN users
+  - [x] 14.2 Update `AppSidebar.tsx`: add sidebar entry for Tag Management visible only to ADMIN users
     - _Requirements: 4.8_
-  - [~] 14.3 Update `nginx.conf`: replace individual backend service proxy rules with a single `/api/*` proxy to Gateway_Service
+  - [x] 14.3 Update `nginx.conf`: replace individual backend service proxy rules with a single `/api/*` proxy to Gateway_Service
     - _Requirements: 10.4, 11.1_
-  - [~] 14.4 Update Vite config and `.env.example` to include `VITE_GATEWAY_URL` environment variable
+  - [x] 14.4 Update Vite config and `.env.example` to include `VITE_GATEWAY_URL` environment variable
     - _Requirements: 11.2_
 
-- [ ] 15. Checkpoint — Frontend
+- [x] 15. Checkpoint — Frontend
   - Ensure frontend compiles and builds successfully, ask the user if questions arise.
 
-- [ ] 16. Docker Compose and containerization
-  - [~] 16.1 Create `Dockerfile` for Gateway_Service (Java 25 runtime, multi-stage build with Maven) following the same pattern as Auth_Service and Dashboard_Service Dockerfiles
+- [x] 16. Docker Compose and containerization
+  - [x] 16.1 Create `Dockerfile` for Gateway_Service (Java 25 runtime, multi-stage build with Maven) following the same pattern as Auth_Service and Dashboard_Service Dockerfiles
     - _Requirements: 10.1_
-  - [~] 16.2 Update `docker-compose.yml`: add `gateway-service` service with configurable external port, environment variables for backend URLs, JWT config, and rate limit settings; add `depends_on` for auth-service and dashboard-service; add health check
+  - [x] 16.2 Update `docker-compose.yml`: add `gateway-service` service with configurable external port, environment variables for backend URLs, JWT config, and rate limit settings; add `depends_on` for auth-service and dashboard-service; add health check
     - _Requirements: 10.2, 10.3, 10.5, 10.6_
-  - [~] 16.3 Update `docker-compose.yml`: update `frontend-app` service to depend on `gateway-service` instead of individual backend services; update environment to pass `VITE_GATEWAY_URL`
+  - [x] 16.3 Update `docker-compose.yml`: update `frontend-app` service to depend on `gateway-service` instead of individual backend services; update environment to pass `VITE_GATEWAY_URL`
     - _Requirements: 10.4_
-  - [~] 16.4 Update `.env` and `.env.example`: add Gateway_Service environment variables (`GATEWAY_SERVICE_PORT`, `GATEWAY_AUTH_SERVICE_URL`, `GATEWAY_DASHBOARD_SERVICE_URL`, `GATEWAY_RATE_LIMIT_MAX_REQUESTS`, `GATEWAY_RATE_LIMIT_WINDOW_SECONDS`)
+  - [x] 16.4 Update `.env` and `.env.example`: add Gateway_Service environment variables (`GATEWAY_SERVICE_PORT`, `GATEWAY_AUTH_SERVICE_URL`, `GATEWAY_DASHBOARD_SERVICE_URL`, `GATEWAY_RATE_LIMIT_MAX_REQUESTS`, `GATEWAY_RATE_LIMIT_WINDOW_SECONDS`)
     - _Requirements: 10.5_
-  - [~] 16.5 Update `.gitignore` and `.dockerignore` to include `gateway-service/` build artifacts and target directories
+  - [x] 16.5 Update `.gitignore` and `.dockerignore` to include `gateway-service/` build artifacts and target directories
     - _Requirements: 10.1_
 
 - [ ] 17. Checkpoint — Full stack integration
