@@ -171,13 +171,13 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 16.5 Update `.gitignore` and `.dockerignore` to include `gateway-service/` build artifacts and target directories
     - _Requirements: 10.1_
 
-- [ ] 17. Checkpoint — Full stack integration
+- [x] 17. Checkpoint — Full stack integration
   - Ensure all services compile, Docker Compose builds successfully, and the full stack starts without errors. Ask the user if questions arise.
 
-- [ ] 18. Version control and release
-  - [~] 18.1 Ensure all previous tasks are complete and tests pass
-  - [~] 18.2 Remove SNAPSHOT suffix from all version references in the codebase
-  - [~] 18.3 Commit the version bump: "release: 1.1.0 - mvp-enhancements-abac-gateway"
+- [-] 18. Version control and release
+  - [x] 18.1 Ensure all previous tasks are complete and tests pass
+  - [x] 18.2 Remove SNAPSHOT suffix from all version references in the codebase
+  - [-] 18.3 Commit the version bump: "release: 1.1.0 - mvp-enhancements-abac-gateway"
   - [~] 18.4 Merge branch into main/master
   - [~] 18.5 Apply Git tag: 1.1.0 (without SNAPSHOT)
   - [~] 18.6 Push branch, merge, and tag to remote
