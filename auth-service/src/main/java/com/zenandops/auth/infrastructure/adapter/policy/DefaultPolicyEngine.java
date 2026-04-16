@@ -6,11 +6,9 @@ import com.zenandops.auth.domain.valueobject.AbacPolicy;
 import com.zenandops.auth.domain.valueobject.RbacPolicy;
 import jakarta.enterprise.context.ApplicationScoped;
 
-import java.util.Map;
-
 /**
  * Default adapter implementing the PolicyEngine port.
- * Evaluates RBAC rules by role matching and ABAC rules by attribute matching.
+ * Evaluates RBAC rules by role matching and ABAC rules by Tag key-value matching.
  */
 @ApplicationScoped
 public class DefaultPolicyEngine implements PolicyEngine {
@@ -33,12 +31,12 @@ public class DefaultPolicyEngine implements PolicyEngine {
         if (policy.requiredUserAttributes() == null || policy.requiredUserAttributes().isEmpty()) {
             return true;
         }
-        Map<String, String> userAttributes = user.getAttributes();
-        if (userAttributes == null || userAttributes.isEmpty()) {
+        // User must have tags assigned to be evaluated against ABAC policies.
+        // Full Tag key-value resolution is performed in the infrastructure layer (Task 3.4).
+        if (user.getTagIds() == null || user.getTagIds().isEmpty()) {
             return false;
         }
-        // User attributes must match ALL required user attributes in the policy
-        return policy.requiredUserAttributes().entrySet().stream()
-                .allMatch(entry -> entry.getValue().equals(userAttributes.get(entry.getKey())));
+        // Placeholder: full Tag resolution and matching will be implemented in Task 3.4
+        return false;
     }
 }

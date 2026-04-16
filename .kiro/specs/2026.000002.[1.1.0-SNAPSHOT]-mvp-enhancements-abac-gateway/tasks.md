@@ -6,14 +6,14 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
 
 ## Tasks
 
-- [ ] 1. Auth_Service — Tag domain model and ABAC refactoring
-  - [~] 1.1 Create `Tag` entity class in `auth-service/.../domain/entity/` with fields: id, key, value, description, createdAt, updatedAt
+- [x] 1. Auth_Service — Tag domain model and ABAC refactoring
+  - [x] 1.1 Create `Tag` entity class in `auth-service/.../domain/entity/` with fields: id, key, value, description, createdAt, updatedAt
     - _Requirements: 1.1_
-  - [~] 1.2 Create domain exceptions `TagAlreadyExistsException`, `TagInUseException`, `TagNotFoundException`, `UserNotFoundException` in `auth-service/.../domain/exception/`
+  - [x] 1.2 Create domain exceptions `TagAlreadyExistsException`, `TagInUseException`, `TagNotFoundException`, `UserNotFoundException` in `auth-service/.../domain/exception/`
     - _Requirements: 2.6, 2.7, 3.4, 3.5_
-  - [~] 1.3 Refactor `User` entity: replace `Map<String, String> attributes` with `List<String> tagIds`
+  - [x] 1.3 Refactor `User` entity: replace `Map<String, String> attributes` with `List<String> tagIds`
     - _Requirements: 1.3_
-  - [~] 1.4 Update `AbacPolicy` value object: ensure `requiredUserAttributes` semantics align with Tag key-value matching
+  - [x] 1.4 Update `AbacPolicy` value object: ensure `requiredUserAttributes` semantics align with Tag key-value matching
     - _Requirements: 1.5_
 
 - [ ] 2. Auth_Service — Tag application layer (ports and use cases)

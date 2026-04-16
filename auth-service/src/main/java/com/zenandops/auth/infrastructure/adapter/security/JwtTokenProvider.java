@@ -35,7 +35,7 @@ public class JwtTokenProvider implements TokenProvider {
                 .claim("name", user.getName())
                 .claim("email", user.getEmail())
                 .groups(new HashSet<>(user.getRoles()))
-                .claim("attributes", user.getAttributes())
+                .claim("tags", user.getTagIds())
                 .expiresIn(Duration.ofMinutes(accessTokenExpirationMinutes))
                 .sign();
     }

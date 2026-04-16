@@ -45,7 +45,7 @@ public class MongoUserRepository implements UserRepository {
         user.setEmail(entity.email);
         user.setPasswordHash(entity.passwordHash);
         user.setRoles(entity.roles);
-        user.setAttributes(entity.attributes);
+        user.setTagIds(entity.tagIds);
         user.setActive(entity.active);
         user.setCreatedAt(entity.createdAt);
         user.setUpdatedAt(entity.updatedAt);
@@ -59,7 +59,7 @@ public class MongoUserRepository implements UserRepository {
         entity.email = user.getEmail();
         entity.passwordHash = user.getPasswordHash();
         entity.roles = user.getRoles();
-        entity.attributes = user.getAttributes();
+        entity.tagIds = user.getTagIds();
         entity.active = user.isActive();
         entity.createdAt = user.getCreatedAt();
         entity.updatedAt = user.getUpdatedAt();
