@@ -58,22 +58,22 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 3.9 Update `AuthExceptionMapper` to handle new domain exceptions (`TagAlreadyExistsException` → 409, `TagInUseException` → 409, `TagNotFoundException` → 404, `UserNotFoundException` → 404)
     - _Requirements: 2.6, 2.7, 3.4, 3.5_
 
-- [-] 4. Auth_Service — Seed data routine
-  - [~] 4.1 Implement `SeedDataService` observing Quarkus `StartupEvent`: check if users collection is empty, create default Tags (`department:engineering`, `department:operations`, `location:HQ`, `location:remote`), create default Users (admin/admin with ADMIN+USER roles, user/user with USER role, guest/guest with GUEST role), assign Tags to Users per design
+- [x] 4. Auth_Service — Seed data routine
+  - [x] 4.1 Implement `SeedDataService` observing Quarkus `StartupEvent`: check if users collection is empty, create default Tags (`department:engineering`, `department:operations`, `location:HQ`, `location:remote`), create default Users (admin/admin with ADMIN+USER roles, user/user with USER role, guest/guest with GUEST role), assign Tags to Users per design
     - Passwords must be bcrypt-hashed
     - Must be idempotent: skip if users collection already has data
     - Must log errors and continue startup without terminating on database failure
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9_
 
-- [ ] 5. Checkpoint — Auth_Service Tag ABAC and seed data
+- [x] 5. Checkpoint — Auth_Service Tag ABAC and seed data
   - Ensure all Auth_Service changes compile and the application starts correctly, ask the user if questions arise.
 
-- [ ] 6. Auth_Service — OpenAPI documentation
-  - [~] 6.1 Add `quarkus-smallrye-openapi` dependency to Auth_Service `pom.xml`
+- [-] 6. Auth_Service — OpenAPI documentation
+  - [x] 6.1 Add `quarkus-smallrye-openapi` dependency to Auth_Service `pom.xml`
     - _Requirements: 9.1, 9.4_
-  - [~] 6.2 Annotate `AuthResource`, `TagResource`, and `UserTagResource` with OpenAPI annotations (descriptions, request/response schemas, authentication requirements, error response codes)
+  - [x] 6.2 Annotate `AuthResource`, `TagResource`, and `UserTagResource` with OpenAPI annotations (descriptions, request/response schemas, authentication requirements, error response codes)
     - _Requirements: 9.7_
-  - [~] 6.3 Configure `application.properties` to enable Swagger UI in dev mode
+  - [x] 6.3 Configure `application.properties` to enable Swagger UI in dev mode
     - _Requirements: 9.8_
 
 - [ ] 7. Dashboard_Service — OpenAPI documentation
