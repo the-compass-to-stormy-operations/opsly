@@ -2,7 +2,7 @@
 # Multi-stage build: Maven build + Java 25 runtime
 
 # --- Stage 1: Build ---
-FROM maven:3.9-eclipse-temurin-21 AS build
+FROM maven:3.9-eclipse-temurin-25 AS build
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ COPY src ./src
 RUN mvn package -DskipTests -B
 
 # --- Stage 2: Runtime ---
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:25-jre
 
 WORKDIR /app
 
