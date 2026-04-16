@@ -38,24 +38,24 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 2.10 Implement `GetUserTagsUseCase`: retrieve all Tags assigned to a User
     - _Requirements: 3.3_
 
-- [ ] 3. Auth_Service — Tag infrastructure layer (adapters and REST)
-  - [~] 3.1 Implement `MongoTagRepository` adapter using Quarkus MongoDB Panache with unique compound index on `{ key: 1, value: 1 }`
+- [x] 3. Auth_Service — Tag infrastructure layer (adapters and REST)
+  - [x] 3.1 Implement `MongoTagRepository` adapter using Quarkus MongoDB Panache with unique compound index on `{ key: 1, value: 1 }`
     - _Requirements: 1.2, 2.1, 2.2, 2.3, 2.4, 2.5_
-  - [~] 3.2 Update `MongoUserRepository` adapter to handle `tagIds` field and implement `findAll()`
+  - [x] 3.2 Update `MongoUserRepository` adapter to handle `tagIds` field and implement `findAll()`
     - _Requirements: 1.3, 3.1, 3.2, 3.3_
-  - [~] 3.3 Update `JwtTokenProvider` adapter: embed resolved Tag key-value pairs (instead of raw attributes map) in Access_Token JWT claims
+  - [x] 3.3 Update `JwtTokenProvider` adapter: embed resolved Tag key-value pairs (instead of raw attributes map) in Access_Token JWT claims
     - _Requirements: 1.4_
-  - [~] 3.4 Update `DefaultPolicyEngine` adapter: `evaluateAbac()` matches User's resolved Tag key-value pairs against `AbacPolicy.requiredUserAttributes`
+  - [x] 3.4 Update `DefaultPolicyEngine` adapter: `evaluateAbac()` matches User's resolved Tag key-value pairs against `AbacPolicy.requiredUserAttributes`
     - _Requirements: 1.5, 1.6_
-  - [~] 3.5 Create Tag REST DTOs: `CreateTagRequest`, `UpdateTagRequest`, `TagResponse`, `PaginatedTagsResponse`
+  - [x] 3.5 Create Tag REST DTOs: `CreateTagRequest`, `UpdateTagRequest`, `TagResponse`, `PaginatedTagsResponse`
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
-  - [~] 3.6 Create User-Tag REST DTOs: `UserTagsRequest`
+  - [x] 3.6 Create User-Tag REST DTOs: `UserTagsRequest`
     - _Requirements: 3.1, 3.2_
-  - [~] 3.7 Create `TagResource` REST resource exposing Tag CRUD endpoints: `POST /api/v1/tags`, `GET /api/v1/tags`, `GET /api/v1/tags/{id}`, `PUT /api/v1/tags/{id}`, `DELETE /api/v1/tags/{id}` — all requiring ADMIN role
+  - [x] 3.7 Create `TagResource` REST resource exposing Tag CRUD endpoints: `POST /api/v1/tags`, `GET /api/v1/tags`, `GET /api/v1/tags/{id}`, `PUT /api/v1/tags/{id}`, `DELETE /api/v1/tags/{id}` — all requiring ADMIN role
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
-  - [~] 3.8 Create `UserTagResource` REST resource exposing User-Tag assignment endpoints: `GET /api/v1/users/{userId}/tags`, `POST /api/v1/users/{userId}/tags`, `DELETE /api/v1/users/{userId}/tags` — all requiring ADMIN role
+  - [x] 3.8 Create `UserTagResource` REST resource exposing User-Tag assignment endpoints: `GET /api/v1/users/{userId}/tags`, `POST /api/v1/users/{userId}/tags`, `DELETE /api/v1/users/{userId}/tags` — all requiring ADMIN role
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7_
-  - [~] 3.9 Update `AuthExceptionMapper` to handle new domain exceptions (`TagAlreadyExistsException` → 409, `TagInUseException` → 409, `TagNotFoundException` → 404, `UserNotFoundException` → 404)
+  - [x] 3.9 Update `AuthExceptionMapper` to handle new domain exceptions (`TagAlreadyExistsException` → 409, `TagInUseException` → 409, `TagNotFoundException` → 404, `UserNotFoundException` → 404)
     - _Requirements: 2.6, 2.7, 3.4, 3.5_
 
 - [ ] 4. Auth_Service — Seed data routine
