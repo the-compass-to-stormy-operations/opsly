@@ -4,6 +4,7 @@ import com.zenandops.auth.application.port.UserRepository;
 import com.zenandops.auth.domain.entity.User;
 import jakarta.enterprise.context.ApplicationScoped;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,6 +24,14 @@ public class MongoUserRepository implements UserRepository {
     public Optional<User> findById(String id) {
         return UserPanacheEntity.<UserPanacheEntity>findByIdOptional(new org.bson.types.ObjectId(id))
                 .map(this::toDomain);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return UserPanacheEntity.<UserPanacheEntity>listAll()
+                .stream()
+                .map(this::toDomain)
+                .toList();
     }
 
     @Override

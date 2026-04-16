@@ -16,26 +16,26 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 1.4 Update `AbacPolicy` value object: ensure `requiredUserAttributes` semantics align with Tag key-value matching
     - _Requirements: 1.5_
 
-- [ ] 2. Auth_Service — Tag application layer (ports and use cases)
-  - [~] 2.1 Define `TagRepository` outbound port interface with methods: `save`, `findById`, `findAll(page, size)`, `findByKeyAndValue`, `delete`, `findAllByIds`, `existsAssignedToAnyUser`
+- [x] 2. Auth_Service — Tag application layer (ports and use cases)
+  - [x] 2.1 Define `TagRepository` outbound port interface with methods: `save`, `findById`, `findAll(page, size)`, `findByKeyAndValue`, `delete`, `findAllByIds`, `existsAssignedToAnyUser`
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.7_
-  - [~] 2.2 Update `UserRepository` outbound port: add `findAll()` method for user listing
+  - [x] 2.2 Update `UserRepository` outbound port: add `findAll()` method for user listing
     - _Requirements: 3.1, 3.2, 3.3_
-  - [~] 2.3 Implement `CreateTagUseCase`: create a new Tag, enforce key:value uniqueness via `TagRepository.findByKeyAndValue`
+  - [x] 2.3 Implement `CreateTagUseCase`: create a new Tag, enforce key:value uniqueness via `TagRepository.findByKeyAndValue`
     - _Requirements: 2.1, 2.6_
-  - [~] 2.4 Implement `ListTagsUseCase`: retrieve paginated list of all Tags
+  - [x] 2.4 Implement `ListTagsUseCase`: retrieve paginated list of all Tags
     - _Requirements: 2.2_
-  - [~] 2.5 Implement `GetTagUseCase`: retrieve a single Tag by id, throw `TagNotFoundException` if not found
+  - [x] 2.5 Implement `GetTagUseCase`: retrieve a single Tag by id, throw `TagNotFoundException` if not found
     - _Requirements: 2.3_
-  - [~] 2.6 Implement `UpdateTagUseCase`: update the description of an existing Tag
+  - [x] 2.6 Implement `UpdateTagUseCase`: update the description of an existing Tag
     - _Requirements: 2.4_
-  - [~] 2.7 Implement `DeleteTagUseCase`: delete a Tag, reject with `TagInUseException` if assigned to any User
+  - [x] 2.7 Implement `DeleteTagUseCase`: delete a Tag, reject with `TagInUseException` if assigned to any User
     - _Requirements: 2.5, 2.7_
-  - [~] 2.8 Implement `AssignTagsToUserUseCase`: assign one or more Tags to a User, ignore duplicates
+  - [x] 2.8 Implement `AssignTagsToUserUseCase`: assign one or more Tags to a User, ignore duplicates
     - _Requirements: 3.1, 3.4, 3.5, 3.6_
-  - [~] 2.9 Implement `RemoveTagsFromUserUseCase`: remove one or more Tags from a User
+  - [x] 2.9 Implement `RemoveTagsFromUserUseCase`: remove one or more Tags from a User
     - _Requirements: 3.2_
-  - [~] 2.10 Implement `GetUserTagsUseCase`: retrieve all Tags assigned to a User
+  - [x] 2.10 Implement `GetUserTagsUseCase`: retrieve all Tags assigned to a User
     - _Requirements: 3.3_
 
 - [ ] 3. Auth_Service — Tag infrastructure layer (adapters and REST)
