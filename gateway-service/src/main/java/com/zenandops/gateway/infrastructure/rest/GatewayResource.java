@@ -42,7 +42,7 @@ import java.util.Map;
  * Request flow: Rate limit check → Route resolution → JWT validation (if required)
  * → Proxy to backend → Return response.
  */
-@Path("/{path:.*}")
+@Path("/api/{path:.*}")
 @Tag(name = "Gateway", description = "API Gateway proxy endpoints")
 public class GatewayResource {
 
