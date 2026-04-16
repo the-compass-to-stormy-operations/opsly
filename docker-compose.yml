@@ -1,0 +1,115 @@
+services:
+
+  # --- Infrastructure ---
+
+  mongodb:
+    image: mongo:7
+    container_name: zenandops-mongodb
+    ports:
+      - "${MONGODB_PORT:-27017}:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_USERNAME:-zenandops}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD:-zenandops}
+    volumes:
+      - mongodb-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - zenandops-net
+
+  kafka:
+    image: apache/kafka:3.9.0
+    container_name: zenandops-kafka
+    ports:
+      - "${KAFKA_PORT:-9092}:9092"
+    environment:
+      # KRaft mode (no Zookeeper)
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      CLUSTER_ID: ZenAndOpsKafkaClusterId01
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    networks:
+      - zenandops-net
+
+  # --- Backend Services ---
+
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    container_name: zenandops-auth-service
+    ports:
+      - "${AUTH_SERVICE_PORT:-8081}:8081"
+    environment:
+      QUARKUS_HTTP_PORT: 8081
+      QUARKUS_MONGODB_CONNECTION_STRING: mongodb://${MONGODB_ROOT_USERNAME:-zenandops}:${MONGODB_ROOT_PASSWORD:-zenandops}@mongodb:27017
+      QUARKUS_MONGODB_DATABASE: ${AUTH_DB_NAME:-zenandops-auth}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: ${JWT_PUBLIC_KEY_LOCATION:-publicKey.pem}
+      MP_JWT_VERIFY_ISSUER: ${JWT_ISSUER:-https://zenandops.com}
+      SMALLRYE_JWT_SIGN_KEY_LOCATION: ${JWT_PRIVATE_KEY_LOCATION:-privateKey.pem}
+      SMALLRYE_JWT_NEW_TOKEN_ISSUER: ${JWT_ISSUER:-https://zenandops.com}
+      ZENANDOPS_JWT_ISSUER: ${JWT_ISSUER:-https://zenandops.com}
+      ZENANDOPS_JWT_ACCESS_TOKEN_EXPIRATION_MINUTES: ${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES:-15}
+      ZENANDOPS_JWT_REFRESH_TOKEN_EXPIRATION_HOURS: ${JWT_REFRESH_TOKEN_EXPIRATION_HOURS:-8}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    networks:
+      - zenandops-net
+
+  dashboard-service:
+    build:
+      context: ./dashboard-service
+      dockerfile: Dockerfile
+    container_name: zenandops-dashboard-service
+    ports:
+      - "${DASHBOARD_SERVICE_PORT:-8082}:8082"
+    environment:
+      QUARKUS_HTTP_PORT: 8082
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: ${JWT_PUBLIC_KEY_LOCATION:-publicKey.pem}
+      MP_JWT_VERIFY_ISSUER: ${JWT_ISSUER:-https://zenandops.com}
+    networks:
+      - zenandops-net
+
+  # --- Frontend ---
+
+  frontend-app:
+    build:
+      context: ./frontend-app
+      dockerfile: Dockerfile
+    container_name: zenandops-frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      - auth-service
+      - dashboard-service
+    networks:
+      - zenandops-net
+
+volumes:
+  mongodb-data:
+
+networks:
+  zenandops-net:
+    driver: bridge
