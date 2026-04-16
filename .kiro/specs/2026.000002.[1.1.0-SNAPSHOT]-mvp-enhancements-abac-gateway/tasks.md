@@ -146,7 +146,7 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 13.5 Add Gateway error handling to `ApiClient.ts` response interceptor: display notification on 429 (rate limit exceeded) and 503 (service unavailable)
     - _Requirements: 11.3, 11.4_
 
-- [ ] 14. Frontend — Routing and navigation updates
+- [-] 14. Frontend — Routing and navigation updates
   - [~] 14.1 Update `App.tsx`: add `/tags` route for `TagManagementPage` (protected, ADMIN only)
     - _Requirements: 4.8_
   - [~] 14.2 Update `AppSidebar.tsx`: add sidebar entry for Tag Management visible only to ADMIN users
