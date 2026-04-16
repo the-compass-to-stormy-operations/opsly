@@ -94,7 +94,7 @@ This plan implements the ZenAndOps 1.1.0 enhancements on top of the completed MV
   - [x] 8.3 Define application port interfaces: `RouteResolver` (resolve target backend URL for a given path) and `RateLimiter` (check rate limit for a client IP)
     - _Requirements: 6.2, 6.3, 6.4, 8.1_
 
-- [ ] 9. Gateway_Service — Infrastructure adapters
+- [-] 9. Gateway_Service — Infrastructure adapters
   - [~] 9.1 Implement `ConfigRouteResolver` adapter: config-driven route resolution mapping path prefixes to backend service URLs with JWT requirement flag
     - Route definitions: `/api/v1/auth/login` → Auth_Service (no JWT), `/api/v1/auth/refresh` → Auth_Service (no JWT), `/api/v1/auth/*` → Auth_Service (JWT), `/api/v1/tags/*` → Auth_Service (JWT), `/api/v1/users/*/tags*` → Auth_Service (JWT), `/api/v1/dashboard/*` → Dashboard_Service (JWT)
     - _Requirements: 6.2, 6.3, 6.4, 7.3_
